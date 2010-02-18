@@ -1,0 +1,96 @@
+<html>
+  <head>
+
+  <script src="http://www.google.com/jsapi"></script>
+  
+  <script>
+    google.load("jquery", "1.4.2");
+  </script>
+  
+  <script src="js/jquery.flash.js"></script>
+  <script src="js/playah.js"></script>
+
+  <script>
+  
+    function add_sounds() {
+      p.add_sound('info', 'sounds/info.mp3');
+      p.add_sound('japanese', 'sounds/japanese.mp3');
+      p.add_sound('cat_1', 'sounds/cat_1.mp3');
+      update_list();
+    }
+    
+    function update_list() {
+      $('#sounds_list').children().remove();
+      
+      sounds = p.sounds()
+      for(i in sounds) {
+        n = sounds[i];
+        app_str = "<li> " + n + " - ";
+        app_str = app_str + "<button onclick=\"p.play_sound('" + n + "');\">play</button>";
+        app_str = app_str + "<button onclick=\"p.stop_all_for_sound('" + n + "');\">stop</button>";
+        app_str = app_str + "</li>";
+        li = $('#sounds_list').append(app_str);
+      }
+    }
+  
+    google.setOnLoadCallback(function() {
+    
+      p = Playah('playah');
+      
+      $('#add_default_sounds').click(function() {
+        add_sounds();
+      })
+
+      $('#add_sound').click(function() {
+        p.add_sound($('#new_key').val(), $('#new_url').val());
+        update_list();
+      })
+        
+      /*
+      $('#playah').flash({
+          src: 'playah.swf',
+          width: 200,
+          height: 200,
+          name: 'playah_flash',
+          id: 'playah_flash'
+      });
+      */
+
+    });
+  </script>
+
+</head>
+
+
+<body>
+
+	
+	<p>
+	  <button id="add_default_sounds" >add default sounds</button>
+  </p>
+
+  <p>
+    key:<input type="text" id="new_key" value="siren_1" />
+    url:<input type="text" id="new_url" value="sounds/siren_1.mp3" />
+    <button id="add_sound">add sound</button>
+  </p>
+  
+  <p>
+    <ul id="sounds_list" ></ul>
+  </p>
+
+
+  <!--< div id="playah" /> -->
+  <p>
+	<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0" width="200" height="200" id="playah" align="middle">
+	  <param name="allowFullScreen" value="false" />
+	  <param name="movie" value="playah.swf?1" />
+	  <param name="quality" value="high" />
+	  <param name="bgcolor" value="#ffffcc" />	
+	  <embed src="playah.swf?1" quality="high" bgcolor="#ffffcc" width="200" height="200" name="playah" align="middle" allowScriptAccess="sameDomain" allowFullScreen="false" type="application/x-shockwave-flash" pluginspage="http://www.adobe.com/go/getflashplayer" />
+	</object>
+	</p>
+	
+</body>
+</html>
+  
