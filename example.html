@@ -13,9 +13,10 @@
   <script>
   
     function add_sounds() {
-      p.add_sound('info', 'sounds/info.mp3');
-      p.add_sound('japanese', 'sounds/japanese.mp3');
-      p.add_sound('cat_1', 'sounds/cat_1.mp3');
+      p.add('info', 'sounds/info.mp3');
+      p.add('japanese', 'sounds/japanese.mp3');
+      p.add('cat_1', 'sounds/cat_1.mp3');
+      p.add('wanderer', 'sounds/wanderer.mp3');
       update_list();
     }
     
@@ -26,8 +27,9 @@
       for(i in sounds) {
         n = sounds[i];
         app_str = "<li> " + n + " - ";
-        app_str = app_str + "<button onclick=\"p.play_sound('" + n + "');\">play</button>";
-        app_str = app_str + "<button onclick=\"p.stop_all_for_sound('" + n + "');\">stop</button>";
+        app_str = app_str + "<button onclick=\"p.play('" + n + "');\">play</button>";
+        app_str = app_str + "<button onclick=\"p.stop('" + n + "');\">stop</button>";
+        app_str = app_str + "<button onclick=\"p.pause('" + n + "');\">pause</button>";
         app_str = app_str + "</li>";
         li = $('#sounds_list').append(app_str);
       }
@@ -42,7 +44,7 @@
       })
 
       $('#add_sound').click(function() {
-        p.add_sound($('#new_key').val(), $('#new_url').val());
+        p.add($('#new_key').val(), $('#new_url').val());
         update_list();
       })
         
@@ -91,6 +93,8 @@
 	</object>
 	</p>
 	
+	
+  <audio id="html5_audio" src="sounds/audiotest.ogg" controls>  </audio>
 </body>
 </html>
   

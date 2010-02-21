@@ -11,19 +11,23 @@ var Playah = function(flash_obj_name) {
 			flash_obj.dbg(str);
 		},
 
-		add_sound: function(key, url) {
-			flash_obj.addSound(key, url);
+		add: function(key, url) {
+			flash_obj.add(key, url);
 			if(sounds.indexOf(key) == -1) {
 				sounds.push(key);				
 			}
 		},
 
-		play_sound: function(key) {
-			flash_obj.playSound(key);
+		play: function(key) {
+			flash_obj.play(key);
 		},
 
-		stop_all_for_sound: function(key) {
-			flash_obj.stopAllForSound(key);
+		stop: function(key) {
+			flash_obj.stop(key);
+		},
+
+		pause: function(key) {
+			flash_obj.pause(key);
 		},
 
 		sounds: function() {
