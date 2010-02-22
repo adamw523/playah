@@ -1,8 +1,9 @@
 var Playah = function(flash_obj_name) {
+	
 	var flash_obj = ($.browser.msie) ? window[flash_obj_name] : document[flash_obj_name];
 	var sounds = [];
 	
-	return {
+	var instance = {
 		flash_obj: function() {
 			return flash_obj;
 		},
@@ -14,7 +15,7 @@ var Playah = function(flash_obj_name) {
 		add: function(key, url) {
 			flash_obj.add(key, url);
 			if(sounds.indexOf(key) == -1) {
-				sounds.push(key);				
+				sounds.push(key);
 			}
 		},
 
@@ -34,5 +35,17 @@ var Playah = function(flash_obj_name) {
 			// flash_obj.getSounds();
 			return sounds;
 		}
+		
 	}
+
+	// set up instance vars if this is first instance of Playah
+	if ( typeof Playah.instances == 'undefined' ) {
+		Playah.instances_index = 0;
+		Playah.instances = [];
+	}
+	
+	// Track each instance of Playah for callback purposes
+	Playah.instances[Playah.instances_index++] = instance;
+
+	return instance;
 }
