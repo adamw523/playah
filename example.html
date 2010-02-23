@@ -26,18 +26,20 @@
       sounds = p.sounds()
       for(i in sounds) {
         n = sounds[i];
-        app_str = "<li> " + n + " - ";
-        app_str = app_str + "<button onclick=\"p.play('" + n + "');\">play</button>";
-        app_str = app_str + "<button onclick=\"p.stop('" + n + "');\">stop</button>";
-        app_str = app_str + "<button onclick=\"p.pause('" + n + "');\">pause</button>";
+        app_str = "<li> " + i + " - ";
+        app_str = app_str + "<button onclick=\"p.play('" + i + "');\">play</button>";
+        app_str = app_str + "<button onclick=\"p.stop('" + i + "');\">stop</button>";
+        app_str = app_str + "<button onclick=\"p.pause('" + i + "');\">pause</button>";
         app_str = app_str + "</li>";
         li = $('#sounds_list').append(app_str);
       }
     }
   
-    google.setOnLoadCallback(function() {
-    
+    Playah.on_flash_ready(function() {
       p = Playah('playah');
+    });
+    
+    google.setOnLoadCallback(function() {
       
       $('#add_default_sounds').click(function() {
         add_sounds();
@@ -94,7 +96,7 @@
 	</p>
 	
 	
-  <audio id="html5_audio" src="sounds/audiotest.ogg" controls>  </audio>
+
 </body>
 </html>
   
