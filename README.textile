@@ -3,7 +3,6 @@ h1. Example
 * Include jQuery because it rocks
 <pre><code>
 <script src="http://www.google.com/jsapi"></script>
-
 <script>
   google.load("jquery", "1.4.2");
 </script>
