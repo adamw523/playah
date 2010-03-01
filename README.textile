@@ -16,6 +16,7 @@ h1. Example
 </code></pre>
 
 * include the Playah .swf
+
 <pre><code>
 <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0" width="200" height="200" id="playah_swf" align="middle">
   <param name="allowFullScreen" value="false" />
@@ -42,6 +43,7 @@ Callback methods like @sound_loaded@ and @sound_complete@ can be added to indivi
 </code></pre>
 
 * Add a few buttons to play the sounds
+
 <pre><code>
 <p>
   <button onclick="p.play('info');">play info sound</button>
@@ -51,6 +53,7 @@ Callback methods like @sound_loaded@ and @sound_complete@ can be added to indivi
 </code></pre>
 
 * Add a few buttons to pause / stop the sounds
+
 <pre><code>
   <p>
     <button onclick="p.pause('info');">pause info sound</button>
@@ -66,6 +69,7 @@ Callback methods like @sound_loaded@ and @sound_complete@ can be added to indivi
 </code></pre>
 
 * Add buttons to stop / pause all sounds
+
 <pre><code>
 <p>
   <button onclick="p.pause_all();">pause all</button>
