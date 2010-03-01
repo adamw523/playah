@@ -1,0 +1,52 @@
+<script src="http://www.google.com/jsapi"></script>
+<script>
+  google.load("jquery", "1.4.2");
+</script>
+
+
+<script src="js/playah.js"></script>
+
+<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0" width="200" height="200" id="playah_swf" align="middle">
+  <param name="allowFullScreen" value="false" />
+  <param name="movie" value="playah.swf" />
+  <param name="quality" value="high" />
+  <param name="bgcolor" value="#ffffcc" />
+  <param name="allowFullScreenptAccess" value="sameDomain" />
+  <embed src="playah.swf" quality="high" bgcolor="#ffffcc" width="200" height="200" name="playah_swf" align="middle" allowFullScreenptAccess="sameDomain" allowFullScreen="false" type="application/x-shockwave-flash" pluginspage="http://www.adobe.com/go/getflashplayer" />
+</object>
+
+
+<script>
+  p = Playah('playah_swf', {on_ready: function() {
+    p.add('info', 'sounds/info.mp3');
+    p.add('japanese', 'sounds/japanese.mp3');
+    p.add('cat_1', 'sounds/cat_1.mp3', {
+            sound_loaded: function() {alert('loading cat sound finished');},
+            sound_complete: function() {alert('finished playing cat sound');}  
+        });  
+    }
+  });
+</script>
+
+<p>
+  <button onclick="p.play('info');">play info sound</button>
+  <button onclick="p.play('japanese');">play japanese sound</button>
+  <button onclick="p.play('cat_1');">play cat sound</button>
+</p>
+
+<p>
+  <button onclick="p.pause('info');">pause info sound</button>
+  <button onclick="p.pause('japanese');">pause japanese sound</button>
+  <button onclick="p.pause('cat_1');">pause cat sound</button>
+</p>
+
+<p>
+  <button onclick="p.stop('info');">stop info sound</button>
+  <button onclick="p.stop('japanese');">stop japanese sound</button>
+  <button onclick="p.stop('cat_1');">stop cat sound</button>
+</p>
+
+<p>
+  <button onclick="p.pause_all();">pause all</button>
+  <button onclick="p.stop_all();">stop all</button>
+</p>
