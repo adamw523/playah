@@ -32,3 +32,32 @@ Playah.on_flash_ready(function() {
 });
 </code></pre>
 
+* Add a few sounds
+<pre><code>
+p.add('info', 'sounds/info.mp3');
+p.add('japanese', 'sounds/japanese.mp3');
+p.add('cat_1', 'sounds/cat_1.mp3');
+</code></pre>
+
+* Add a few buttons to play the sounds
+<pre><code>
+<button onclick="p.play('info');">play info sound</button>
+<button onclick="p.play('japanese');">play japanese sound</button>
+<button onclick="p.play('cat_1');">play cat sound</button>
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
