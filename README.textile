@@ -1,7 +1,6 @@
 h1. Example
 
-@
-<script src="http://www.google.com/jsapi"></script>
+@@<script src="http://www.google.com/jsapi"></script>@@
 
 <script>
   google.load("jquery", "1.4.2");
