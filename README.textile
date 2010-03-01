@@ -1,6 +1,6 @@
 h1. Example
 
-pre.
+@
 <script src="http://www.google.com/jsapi"></script>
 
 <script>
@@ -9,3 +9,4 @@ pre.
 
 <script src="js/jquery.flash.js"></script>
 <script src="js/playah.js"></script>
+@
