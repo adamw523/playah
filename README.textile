@@ -25,21 +25,18 @@ h1. Example
 </object>
 </code></pre>
 
-* Anything wrapped in @Playah.on_flash_ready@ will not be executed until the flash is loaded
+* Make the flash a Playah object, add some sounds.  Everything in @on_ready@ runs after the flash loads.  
+Callback methods like @sound_loaded@ and @sound_complete@ can be added to individual sounds
 <pre><code>
-Playah.on_flash_ready(function() {
-  p = Playah('playah_swf');
-});
-</code></pre>
-
-* Add a few sounds
-<pre><code>
-p.add('info', 'sounds/info.mp3');
-p.add('japanese', 'sounds/japanese.mp3');
-p.add('cat_1', 'sounds/cat_1.mp3', {
-        sound_loaded: function() {alert('loading cat sound finished');},
-        sound_complete: function() {alert('finished playing cat sound');}  
-    });
+  p = Playah('playah_swf', {on_ready: function() {
+    p.add('info', 'sounds/info.mp3');
+    p.add('japanese', 'sounds/japanese.mp3');
+    p.add('cat_1', 'sounds/cat_1.mp3', {
+            sound_loaded: function() {alert('loading cat sound finished');},
+            sound_complete: function() {alert('finished playing cat sound');}  
+        });  
+    }
+  });
 </code></pre>
 
 * Add a few buttons to play the sounds

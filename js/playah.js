@@ -1,5 +1,4 @@
-var Playah = function(flash_obj_name) {
-	
+var Playah = function(flash_obj_name, options) {
 	var flash_obj = ($.browser.msie) ? window[flash_obj_name] : document[flash_obj_name];
 	var sounds = [];
 	var callbacks = [];
@@ -89,7 +88,18 @@ var Playah = function(flash_obj_name) {
 	// Track each instance of Playah for callback purposes
 	instance_id = Playah.instances_index++;
 	Playah.instances[instance_id] = instance;
-	flash_obj.setInstanceId(instance_id);
+	Playah.ready_list = [];
+	Playah.ready_list.push(function() { 
+		flash_obj.setInstanceId(instance_id);
+	});
+
+	if(options && options['on_ready']) {
+		if(Playah.flash_ready) {
+			options['on_ready'].call();
+		} else {
+			Playah.ready_list.push(options['on_ready']); 	
+		}
+	}
 	
 	return instance;
 }
