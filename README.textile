@@ -61,6 +61,13 @@ Callback methods like @sound_loaded@ and @sound_complete@ can be added to indivi
 </p>
 </code></pre>
 
+* Add buttons to stop / pause all sounds
+<pre><code>
+<p>
+<button onclick="p.pause_all();">pause all</button>
+<button onclick="p.stop_all();">stop all</button>
+</p>
+</code></pre>
 
 
 
