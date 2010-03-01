@@ -36,7 +36,10 @@ Playah.on_flash_ready(function() {
 <pre><code>
 p.add('info', 'sounds/info.mp3');
 p.add('japanese', 'sounds/japanese.mp3');
-p.add('cat_1', 'sounds/cat_1.mp3', {on_laod: alert('loaded cat sound');});
+p.add('cat_1', 'sounds/cat_1.mp3', {
+        sound_loaded: function() {alert('loading cat sound finished');},
+        sound_complete: function() {alert('finished playing cat sound');}  
+    });
 </code></pre>
 
 * Add a few buttons to play the sounds
