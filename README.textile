@@ -26,8 +26,9 @@ h1. Example
 </code></pre>
 
 * Anything wrapped in @Playah.on_flash_ready@ will not be executed until the flash is loaded
+<pre><code>
 Playah.on_flash_ready(function() {
   p = Playah('playah_swf');
 });
-
+</code></pre>
 
