@@ -1,12 +1,16 @@
 h1. Example
 
 * Include jQuery because it rocks
-@<script src="http://www.google.com/jsapi"></script>@
+<pre><code>
+<script src="http://www.google.com/jsapi"></script>
 
-@<script>@
-@  google.load("jquery", "1.4.2");@
-@</script>@
+<script>
+  google.load("jquery", "1.4.2");
+</script>
+</code></pre>
 
-<script src="js/jquery.flash.js"></script>
+* Include Playah
+<pre><code>
 <script src="js/playah.js"></script>
-@
+</code></pre>
+
