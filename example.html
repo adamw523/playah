@@ -11,7 +11,7 @@
   <script src="js/playah.js"></script>
 
   <script>
-  
+
     function add_sounds() {
       p.add('info', 'sounds/info.mp3');
       p.add('japanese', 'sounds/japanese.mp3');
@@ -23,7 +23,7 @@
     function update_list() {
       $('#sounds_list').children().remove();
       
-      sounds = p.sounds()
+      sounds = p.sounds();
       for(i in sounds) {
         n = sounds[i];
         app_str = "<li> " + i + " - ";
@@ -34,18 +34,26 @@
         li = $('#sounds_list').append(app_str);
       }
     }
-  
-    Playah.on_flash_ready(function() {
-      p = Playah('playah');
-    });
-    
+      
     google.setOnLoadCallback(function() {
+
+      Playah.on_flash_ready(function() {
+        p = Playah('playah_swf');
+      });
       
       $('#add_default_sounds').click(function() {
         add_sounds();
       })
 
-      $('#add_sound').click(function() {
+      $('#pause_all').click(function() {
+        p.pause_all();
+      })
+
+      $('#stop_all').click(function() {
+        p.stop_all();
+      })
+
+      $('#add_sound_btn').click(function() {
         p.add($('#new_key').val(), $('#new_url').val());
         update_list();
       })
@@ -61,6 +69,7 @@
       */
 
     });
+
   </script>
 
 </head>
@@ -71,12 +80,14 @@
 	
 	<p>
 	  <button id="add_default_sounds" >add default sounds</button>
+	  <button id="stop_all" >stop all</button>
+	  <button id="pause_all" >pause all</button>
   </p>
 
   <p>
     key:<input type="text" id="new_key" value="siren_1" />
     url:<input type="text" id="new_url" value="sounds/siren_1.mp3" />
-    <button id="add_sound">add sound</button>
+    <button id="add_sound_btn">add sound</button>
   </p>
   
   <p>
@@ -86,16 +97,15 @@
 
   <!--< div id="playah" /> -->
   <p>
-	<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0" width="200" height="200" id="playah" align="middle">
+	<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0" width="200" height="200" id="playah_swf" align="middle">
 	  <param name="allowFullScreen" value="false" />
-	  <param name="movie" value="playah.swf?1" />
+	  <param name="movie" value="playah.swf" />
 	  <param name="quality" value="high" />
-	  <param name="bgcolor" value="#ffffcc" />	
-	  <embed src="playah.swf?1" quality="high" bgcolor="#ffffcc" width="200" height="200" name="playah" align="middle" allowScriptAccess="sameDomain" allowFullScreen="false" type="application/x-shockwave-flash" pluginspage="http://www.adobe.com/go/getflashplayer" />
+	  <param name="bgcolor" value="#ffffcc" />
+	  <param name="allowFullScreenptAccess" value="sameDomain" />
+	  <embed src="playah.swf" quality="high" bgcolor="#ffffcc" width="200" height="200" name="playah_swf" align="middle" allowFullScreenptAccess="sameDomain" allowFullScreen="false" type="application/x-shockwave-flash" pluginspage="http://www.adobe.com/go/getflashplayer" />
 	</object>
 	</p>
-	
-	
 
 </body>
 </html>

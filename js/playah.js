@@ -15,7 +15,6 @@ var Playah = function(flash_obj_name) {
 					callbacks[key][callback] = [];
 				}
 				callbacks[key][callback].push(in_callbacks[callback]);
-				callbacks[key][callback].push("hi2");
 			}
 		},
 		
@@ -52,12 +51,19 @@ var Playah = function(flash_obj_name) {
 			flash_obj.pause(key);
 		},
 
+		stop_all: function() {
+			flash_obj.stopAll();
+		},
+
+		pause_all: function() {
+			flash_obj.pauseAll();
+		},
+
 		request_update_sound: function(key) {
 			flash_obj.updateSound(key);
 		},
 		
 		sounds: function() {
-			// flash_obj.getSounds();
 			return sounds;
 		},
 		
