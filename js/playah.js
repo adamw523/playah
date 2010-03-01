@@ -106,7 +106,7 @@ var Playah = function(flash_obj_name, options) {
 
 // receiver / dispatcher for all calls from flash
 Playah.flash_receiver_dispatcher = function(method, json_txt) {
-	console.log('received from flash: method: ' + method + ', json_txt: ' + json_txt);
+	// console.log('received from flash: method: ' + method + ', json_txt: ' + json_txt);
 	json = JSON.parse(json_txt);
 	instance = Playah.instances[json['instance_id']];
 	instance.flash_receiver(method, json);
