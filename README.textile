@@ -1,6 +1,7 @@
 h1. Example
 
 * Include jQuery because it rocks
+
 <pre><code>
 <script src="http://www.google.com/jsapi"></script>
 <script>
@@ -9,6 +10,7 @@ h1. Example
 </code></pre>
 
 * Include Playah
+
 <pre><code>
 <script src="js/playah.js"></script>
 </code></pre>
