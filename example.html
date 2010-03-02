@@ -1,5 +1,35 @@
 <html>
-  <head>
+  <head>Playah Examples</head>
+<body>
+	<p>
+	  <button id="add_default_sounds" >add default sounds</button>
+	  <button id="stop_all" >stop all</button>
+	  <button id="pause_all" >pause all</button>
+  </p>
+
+  <p>
+    key:<input type="text" id="new_key" value="siren_1" />
+    url:<input type="text" id="new_url" value="sounds/siren_1.mp3" />
+    <button id="add_sound_btn">add sound</button>
+  </p>
+  
+  <p>
+    <ul id="sounds_list" ></ul>
+  </p>
+
+
+  <!--< div id="playah" /> -->
+  <p>
+	<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0" width="200" height="200" id="playah_swf" align="middle">
+	  <param name="allowFullScreen" value="false" />
+	  <param name="movie" value="playah.swf" />
+	  <param name="quality" value="high" />
+	  <param name="bgcolor" value="#ffffcc" />
+	  <param name="allowFullScreenptAccess" value="sameDomain" />
+	  <embed src="playah.swf" quality="high" bgcolor="#ffffcc" width="200" height="200" name="playah_swf" align="middle" allowFullScreenptAccess="sameDomain" allowFullScreen="false" type="application/x-shockwave-flash" pluginspage="http://www.adobe.com/go/getflashplayer" />
+	</object>
+	</p>
+
 
   <script src="http://www.google.com/jsapi"></script>
   
@@ -7,8 +37,8 @@
     google.load("jquery", "1.4.2");
   </script>
   
-  <script src="js/jquery.flash.js"></script>
-  <script src="js/playah.js"></script>
+  <script src="/js/jquery.flash.js"></script>
+  <script src="/js/playah.js"></script>
 
   <script>
 
@@ -37,9 +67,7 @@
       
     google.setOnLoadCallback(function() {
 
-      Playah.on_flash_ready(function() {
-        p = Playah('playah_swf');
-      });
+      p = Playah('playah_swf', {onready: function() { console.log("Flash is ready!") } });
       
       $('#add_default_sounds').click(function() {
         add_sounds();
@@ -72,40 +100,6 @@
 
   </script>
 
-</head>
-
-
-<body>
-
-	
-	<p>
-	  <button id="add_default_sounds" >add default sounds</button>
-	  <button id="stop_all" >stop all</button>
-	  <button id="pause_all" >pause all</button>
-  </p>
-
-  <p>
-    key:<input type="text" id="new_key" value="siren_1" />
-    url:<input type="text" id="new_url" value="sounds/siren_1.mp3" />
-    <button id="add_sound_btn">add sound</button>
-  </p>
-  
-  <p>
-    <ul id="sounds_list" ></ul>
-  </p>
-
-
-  <!--< div id="playah" /> -->
-  <p>
-	<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0" width="200" height="200" id="playah_swf" align="middle">
-	  <param name="allowFullScreen" value="false" />
-	  <param name="movie" value="playah.swf" />
-	  <param name="quality" value="high" />
-	  <param name="bgcolor" value="#ffffcc" />
-	  <param name="allowFullScreenptAccess" value="sameDomain" />
-	  <embed src="playah.swf" quality="high" bgcolor="#ffffcc" width="200" height="200" name="playah_swf" align="middle" allowFullScreenptAccess="sameDomain" allowFullScreen="false" type="application/x-shockwave-flash" pluginspage="http://www.adobe.com/go/getflashplayer" />
-	</object>
-	</p>
 
 </body>
 </html>

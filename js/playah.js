@@ -29,6 +29,17 @@ var Playah = function(flash_obj_name, options) {
 			return flash_obj;
 		},
 
+		flash_ready: function() {
+			return flash_obj.getPlayerReady();
+		},
+		
+		load_when_ready: function() {
+			for(j=0;j<this.ready_list.length;j++) {
+				var func = this.ready_list[j];
+				func.call();
+			}
+		},
+
 		dbg: function(str) {
 			flash_obj.dbg(str);
 		},
@@ -88,18 +99,15 @@ var Playah = function(flash_obj_name, options) {
 	// Track each instance of Playah for callback purposes
 	instance_id = Playah.instances_index++;
 	Playah.instances[instance_id] = instance;
-	Playah.ready_list = [];
-	Playah.ready_list.push(function() { 
+	instance.ready_list = [];
+	instance.ready_list.push(function() { 
 		flash_obj.setInstanceId(instance_id);
 	});
 
 	if(options && options['on_ready']) {
-		if(Playah.flash_ready) {
-			options['on_ready'].call();
-		} else {
-			Playah.ready_list.push(options['on_ready']); 	
-		}
+		instance.ready_list.push(options['on_ready']);
 	}
+	Playah.load_functions_if_ready();
 	
 	return instance;
 }
@@ -119,18 +127,17 @@ if ( typeof Playah.ready_list == 'undefined' ) {
 // false until flash is loaded
 Playah.flash_ready = false;
 
-Playah.on_flash_ready = function(fn) {
-	if(Playah.flash_ready) {
-		fn.call();
-	} else {
-		Playah.ready_list.push(fn);
+Playah.load_functions_if_ready = function() {
+	var class_ready = this.flash_ready;
+	var instances_ready = false;
+	for(i=0;i<this.instances.length;i++) {
+		var instances_ready = class_ready || instances_ready || this.instances[i].flash_ready();
+		if (instances_ready) 
+			this.instances[i].load_when_ready();
 	}
 }
 
 Playah.set_flash_ready = function() {
 	Playah.flash_ready = true;
-	// call all functions waiting for flash to be ready
-	for(func in Playah.ready_list) {
-		Playah.ready_list[func].call();
-	}
+	Playah.load_functions_if_ready();
 }
