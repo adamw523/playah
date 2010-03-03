@@ -28,7 +28,7 @@ var Playah = function(flash_obj_name, options) {
 		flash_obj: function() {
 			return flash_obj;
 		},
-
+		
 		flash_ready: function() {
 			if( typeof flash_obj != 'undefined' && typeof flash_obj.getPlayerReady != 'undefined' ) {
 				return flash_obj.getPlayerReady();				
@@ -55,6 +55,10 @@ var Playah = function(flash_obj_name, options) {
 
 		play: function(key) {
 			flash_obj.play(key);
+		},
+		
+		play_from_position: function(key, position) {
+			flash_obj.playFromPosition(key, position);
 		},
 
 		stop: function(key) {

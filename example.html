@@ -60,6 +60,7 @@
         app_str = app_str + "<button onclick=\"p.play('" + i + "');\">play</button>";
         app_str = app_str + "<button onclick=\"p.stop('" + i + "');\">stop</button>";
         app_str = app_str + "<button onclick=\"p.pause('" + i + "');\">pause</button>";
+        app_str = app_str + "<button onclick=\"p.play_from_position('" + i + "', 2000);\">play from position 2000</button>";
         app_str = app_str + "</li>";
         li = $('#sounds_list').append(app_str);
       }
