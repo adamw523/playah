@@ -30,7 +30,11 @@ var Playah = function(flash_obj_name, options) {
 		},
 
 		flash_ready: function() {
-			return flash_obj.getPlayerReady();
+			if( typeof flash_obj != 'undefined' && typeof flash_obj.getPlayerReady != 'undefined' ) {
+				return flash_obj.getPlayerReady();				
+			} else {
+				return false;
+			}
 		},
 		
 		load_when_ready: function() {
