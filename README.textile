@@ -55,17 +55,17 @@ Callback methods like @sound_loaded@ and @sound_complete@ can be added to indivi
 * Add a few buttons to pause / stop the sounds
 
 <pre><code>
-  <p>
-    <button onclick="p.pause('info');">pause info sound</button>
-    <button onclick="p.pause('japanese');">pause japanese sound</button>
-    <button onclick="p.pause('cat_1');">pause cat sound</button>
-  </p>
+<p>
+  <button onclick="p.pause('info');">pause info sound</button>
+  <button onclick="p.pause('japanese');">pause japanese sound</button>
+  <button onclick="p.pause('cat_1');">pause cat sound</button>
+</p>
 
-  <p>
-    <button onclick="p.stop('info');">stop info sound</button>
-    <button onclick="p.stop('japanese');">stop japanese sound</button>
-    <button onclick="p.stop('cat_1');">stop cat sound</button>
-  </p>
+<p>
+  <button onclick="p.stop('info');">stop info sound</button>
+  <button onclick="p.stop('japanese');">stop japanese sound</button>
+  <button onclick="p.stop('cat_1');">stop cat sound</button>
+</p>
 </code></pre>
 
 * Add buttons to stop / pause all sounds
