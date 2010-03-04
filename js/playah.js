@@ -87,13 +87,11 @@ var Playah = function(flash_obj_name, options) {
 		
 		flash_receiver: function(method, json) {
 			// console.log('flash_receiver got method: ' + method + ', key: ' + json['key'] + ', json: ' + json);
-			if(method == "update_sound") {
+			if(method == "sound_updated") {
 				instance.update_sound(json['key'], json['snd']);
-			} else {
-				// must be a callback
-				for (callback in callbacks[json['key']][method]) {
-					callbacks[json['key']][method][callback].call();
-				}
+			}
+			for (callback in callbacks[json['key']][method]) {
+				callbacks[json['key']][method][callback].call();
 			}
 		}
 	}
@@ -148,4 +146,9 @@ Playah.load_functions_if_ready = function() {
 Playah.set_flash_ready = function() {
 	Playah.flash_ready = true;
 	Playah.load_functions_if_ready();
+}
+
+Playah.round = function(num, precision) {
+	var p = Math.pow(10, precision);
+	return Math.round( num * p ) / p;
 }
