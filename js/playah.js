@@ -54,7 +54,7 @@ var Playah = function(flash_obj_name, options) {
 		},
 
 		play: function(key) {
-			flash_obj.play(key);
+			flash_obj.playSound(key);
 		},
 		
 		play_from_position: function(key, position) {
@@ -62,7 +62,7 @@ var Playah = function(flash_obj_name, options) {
 		},
 
 		stop: function(key) {
-			flash_obj.stop(key);
+			flash_obj.stopSound(key);
 		},
 
 		pause: function(key) {
