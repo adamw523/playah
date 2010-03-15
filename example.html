@@ -25,12 +25,12 @@
 	  <param name="movie" value="playah.swf" />
 	  <param name="quality" value="high" />
 	  <param name="bgcolor" value="#ffffcc" />
-	  <param name="allowFullScreenptAccess" value="sameDomain" />
+	  <param name="allowScriptAccess" value="always" />
 	  <embed src="playah.swf" quality="high" bgcolor="#ffffcc" width="200" height="200" name="playah_swf" align="middle" allowFullScreenptAccess="sameDomain" allowFullScreen="false" type="application/x-shockwave-flash" pluginspage="http://www.adobe.com/go/getflashplayer" />
 	</object>
 	</p>
 
-
+  <script src="js/json2.js"></script>
   <script src="http://www.google.com/jsapi"></script>
   
   <script>
@@ -53,6 +53,7 @@
       $('#sounds_list').children().remove();
       
       sounds = p.sounds();
+
       for(i in sounds) {
         n = sounds[i];
         app_str = "<li> " + i + " - ";
